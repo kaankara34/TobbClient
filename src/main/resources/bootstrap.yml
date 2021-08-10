@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: common-aegon-tobb-client
+  cloud:
+    config:
+      uri: ***************************
+
+
+
+
+
+
+
+
+

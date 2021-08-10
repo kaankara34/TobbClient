@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:types>
+        <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+            <s:element name="FindAcente">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="param" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="FindAcenteResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="FindAcenteResult" type="tns:ArrayOfAcente" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="ArrayOfAcente">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="Acente" nillable="true" type="tns:Acente" />
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="Acente">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="AcenteAdi" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="LevhaNo" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="VergiNo" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="TcNo" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="Oda" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="Calisanlist" type="tns:ArrayOfCalisan" />
+                    <s:element minOccurs="0" maxOccurs="1" name="Adreslist" type="tns:ArrayOfAdres" />
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="ArrayOfCalisan">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="Calisan" nillable="true" type="tns:Calisan" />
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="Calisan">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="TcKimlikNo" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="Adi" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="Soyadi" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="SicilNo" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="KayitDurumuAdi" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="CalisanTipiAdi" type="s:string" />
+                    <s:element minOccurs="1" maxOccurs="1" name="BaslangicTarihi" nillable="true" type="s:dateTime" />
+                    <s:element minOccurs="1" maxOccurs="1" name="BitisTarihi" nillable="true" type="s:dateTime" />
+                    <s:element minOccurs="0" maxOccurs="1" name="Ruhsatlist" type="tns:ArrayOfRuhsat" />
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="ArrayOfRuhsat">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="Ruhsat" nillable="true" type="tns:Ruhsat" />
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="Ruhsat">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="RuhsatAdi" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="DokumanNumarasi" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="Aciklama" type="s:string" />
+                    <s:element minOccurs="1" maxOccurs="1" name="DokumanTarihi" nillable="true" type="s:dateTime" />
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="ArrayOfAdres">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="Adres" nillable="true" type="tns:Adres" />
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="Adres">
+                <s:sequence>
+                    <s:element minOccurs="1" maxOccurs="1" name="AdresTipi" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="MerkezSube" type="s:int" />
+                    <s:element minOccurs="1" maxOccurs="1" name="SubeKodu" type="s:int" />
+                    <s:element minOccurs="0" maxOccurs="1" name="Il" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="Ilce" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="AcikAdres" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="Adresi" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="ListIpAdres" type="tns:ArrayOfString" />
+                </s:sequence>
+            </s:complexType>
+            <s:complexType name="ArrayOfString">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+                </s:sequence>
+            </s:complexType>
+            <s:element name="GetAcente">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="levhaNo" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="GetAcenteResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="GetAcenteResult" type="tns:Acente" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="isTCKN">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="tckimlik" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="isTCKNResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="isTCKNResult" type="s:boolean" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="isTCKNAndLicenseNumber">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="tckimlik" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="licenseNumber" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="isTCKNAndLicenseNumberResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="isTCKNAndLicenseNumberResult" type="s:boolean" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="GetEksper">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="levhaNo" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="GetEksperResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="GetEksperResult" type="tns:Eksper" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:complexType name="Eksper">
+                <s:sequence>
+                    <s:element minOccurs="0" maxOccurs="1" name="EksperAdi" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="LevhaNo" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="VergiNo" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="FirmaVergiNo" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="TcNo" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="Oda" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="IsTelefonu" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="CepTelefonu" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+                    <s:element minOccurs="0" maxOccurs="1" name="Calisanlist" type="tns:ArrayOfCalisan" />
+                    <s:element minOccurs="0" maxOccurs="1" name="Adreslist" type="tns:ArrayOfAdres" />
+                </s:sequence>
+            </s:complexType>
+        </s:schema>
+    </wsdl:types>
+    <wsdl:message name="FindAcenteSoapIn">
+        <wsdl:part name="parameters" element="tns:FindAcente" />
+    </wsdl:message>
+    <wsdl:message name="FindAcenteSoapOut">
+        <wsdl:part name="parameters" element="tns:FindAcenteResponse" />
+    </wsdl:message>
+    <wsdl:message name="GetAcenteSoapIn">
+        <wsdl:part name="parameters" element="tns:GetAcente" />
+    </wsdl:message>
+    <wsdl:message name="GetAcenteSoapOut">
+        <wsdl:part name="parameters" element="tns:GetAcenteResponse" />
+    </wsdl:message>
+    <wsdl:message name="isTCKNSoapIn">
+        <wsdl:part name="parameters" element="tns:isTCKN" />
+    </wsdl:message>
+    <wsdl:message name="isTCKNSoapOut">
+        <wsdl:part name="parameters" element="tns:isTCKNResponse" />
+    </wsdl:message>
+    <wsdl:message name="isTCKNAndLicenseNumberSoapIn">
+        <wsdl:part name="parameters" element="tns:isTCKNAndLicenseNumber" />
+    </wsdl:message>
+    <wsdl:message name="isTCKNAndLicenseNumberSoapOut">
+        <wsdl:part name="parameters" element="tns:isTCKNAndLicenseNumberResponse" />
+    </wsdl:message>
+    <wsdl:message name="GetEksperSoapIn">
+        <wsdl:part name="parameters" element="tns:GetEksper" />
+    </wsdl:message>
+    <wsdl:message name="GetEksperSoapOut">
+        <wsdl:part name="parameters" element="tns:GetEksperResponse" />
+    </wsdl:message>
+    <wsdl:portType name="SigSirketWSSoap">
+        <wsdl:operation name="FindAcente">
+            <wsdl:input message="tns:FindAcenteSoapIn" />
+            <wsdl:output message="tns:FindAcenteSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="GetAcente">
+            <wsdl:input message="tns:GetAcenteSoapIn" />
+            <wsdl:output message="tns:GetAcenteSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="isTCKN">
+            <wsdl:input message="tns:isTCKNSoapIn" />
+            <wsdl:output message="tns:isTCKNSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="isTCKNAndLicenseNumber">
+            <wsdl:input message="tns:isTCKNAndLicenseNumberSoapIn" />
+            <wsdl:output message="tns:isTCKNAndLicenseNumberSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="GetEksper">
+            <wsdl:input message="tns:GetEksperSoapIn" />
+            <wsdl:output message="tns:GetEksperSoapOut" />
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="SigSirketWSSoap" type="tns:SigSirketWSSoap">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+        <wsdl:operation name="FindAcente">
+            <soap:operation soapAction="http://tempuri.org/FindAcente" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetAcente">
+            <soap:operation soapAction="http://tempuri.org/GetAcente" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="isTCKN">
+            <soap:operation soapAction="http://tempuri.org/isTCKN" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="isTCKNAndLicenseNumber">
+            <soap:operation soapAction="http://tempuri.org/isTCKNAndLicenseNumber" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetEksper">
+            <soap:operation soapAction="http://tempuri.org/GetEksper" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="SigSirketWSSoap12" type="tns:SigSirketWSSoap">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+        <wsdl:operation name="FindAcente">
+            <soap12:operation soapAction="http://tempuri.org/FindAcente" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetAcente">
+            <soap12:operation soapAction="http://tempuri.org/GetAcente" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="isTCKN">
+            <soap12:operation soapAction="http://tempuri.org/isTCKN" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="isTCKNAndLicenseNumber">
+            <soap12:operation soapAction="http://tempuri.org/isTCKNAndLicenseNumber" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="GetEksper">
+            <soap12:operation soapAction="http://tempuri.org/GetEksper" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="SigSirketWS">
+        <wsdl:port name="SigSirketWSSoap" binding="tns:SigSirketWSSoap">
+            <soap:address location="http://sigortaws.tobb.org.tr/SigSirketWs.asmx" />
+        </wsdl:port>
+        <wsdl:port name="SigSirketWSSoap12" binding="tns:SigSirketWSSoap12">
+            <soap12:address location="http://sigortaws.tobb.org.tr/SigSirketWs.asmx" />
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
